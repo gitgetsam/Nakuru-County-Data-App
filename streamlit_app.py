@@ -1,9 +1,8 @@
 import streamlit as st 
 import pandas as pd 
 import altair as alt 
-import matplotlib.pyplot as plt
-import plotly.graph_objects as go
 
+#page configurations
 st.set_page_config(page_title='NCDA', page_icon='images/Flag_of_Nakuru_County.gif')
 
 df = pd.read_csv(
@@ -38,14 +37,8 @@ the total OSR receipts during the reporting period.""")
 st.subheader('Revenue Performance in the FY 2023/24')
 st.write('**SUMMARY**')
 bar_df
-#Equitable = bar_df['Actual Receipts (Kshs.)'].loc[bar_df.index[0]]
-#Grants = bar_df['Actual Receipts (Kshs.)'].loc[bar_df.index[1]]
-#Other = bar_df['Actual Receipts (Kshs.)'].loc[bar_df.index[2]]
-#fig = go.Figure(bar_df=[go.Pie(labels=['Equitable', 'Grants', 'Other'], values=[Equitable, Grants, Other])])
-#fig
+
 st.write('**DETAILED**')
-#bar_df.columns['Revenue Category', 'Annual Budget Allocation  (Kshs)']
-#bar_graph_df = bar_df[bar_df['Revenue Category'], bar_df['Annual Budget Allocation  (Kshs)']]
 df
 fig_alt = alt.Chart(bar_df).mark_bar().encode(
     x=alt.X('Revenue Category',
